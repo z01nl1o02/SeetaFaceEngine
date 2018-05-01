@@ -180,7 +180,9 @@ int main(int argc, char* argv[])
 			if (rotScores[rot] > rotScores[topScoreRot])
 				topScoreRot = rot;
 		}
-		log.add(filelist[k]);
+		ostringstream oss;
+		oss << filelist[k] << "|" <<fixed<<setprecision(2)<< topScoreRot << "," << rotScores[topScoreRot];
+		log.add(oss.str());
 
 		char outpath[1024];
 		sprintf(outpath, "%s%.9d.jpg", FLAGS_outdir.c_str(), photoidx++);
