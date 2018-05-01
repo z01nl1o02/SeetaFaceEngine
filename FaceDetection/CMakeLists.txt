@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.1.0)
 project(seeta_facedet_lib)
 
 # Build options
-option(BUILD_EXAMPLES  "Set to ON to build examples"  ON)
+option(BUILD_EXAMPLES  "Set to ON to build examples"  OFF)
 option(USE_OPENMP      "Set to ON to build use openmp"  ON)
 option(USE_SSE         "Set to ON to build use SSE"  ON)
 
@@ -67,3 +67,8 @@ if (BUILD_EXAMPLES)
         target_link_libraries(facedet_test ${facedet_required_libs})
     endif()
 endif()
+
+install(TARGETS seeta_facedet_lib
+    RUNTIME DESTINATION dll
+    ARCHIVE DESTINATION seetalib
+    LIBRARY DESTINATION seetalib)
